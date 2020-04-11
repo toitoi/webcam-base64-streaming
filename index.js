@@ -13,7 +13,7 @@ const wsServer = new WebSocket.Server({ server: httpServer }, () => console.log(
 let connectedClients = [];
 
 wsServer.on('connection', (ws, req) => {
-    console.log('Connected');
+    console.log(req.connection.remoteAddress+' Connected');
     // add new connected client
     connectedClients.push(ws);
     // listen for messages from the streamer, the clients will not send anything so we don't need to filter
